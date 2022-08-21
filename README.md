@@ -68,6 +68,12 @@ const Component = () => {
 ### Invoice Generation
 The conversion of an `HTML` template to an accessiblity-friendly (non-screenshot) `PDF` is powered by Puppeteer and therefore cannot be done client-side. Below is an example of an API route you might use to implement this feature:
 ```js
+/*
+  Note: `moduleResolution` must be set to "NodeNext" for this import to work,
+  otherwise it must be imported from "docket-react/dist/cjs/server"
+*/ 
+import { createDocketPDF } from "docket-react/server"
+
 async function download(req: Request, res: Response) {
   const data: DocketInvoice = req.body
   
