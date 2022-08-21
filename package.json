@@ -1,0 +1,56 @@
+{
+  "version": "1.0.6",
+  "name": "docket-react",
+  "description": "Drop-in invoice management system for React.",
+  "author": "robbiesymonds",
+  "repository": "https://github.com/robbiesymonds/Docket",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/esm/index.d.ts"
+    },
+    "./server": {
+      "require": "./dist/cjs/server.js",
+      "import": "./dist/esm/server.js",
+      "types": "./dist/esm/server.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module CommonJS --jsx react --outDir dist/cjs",
+    "build": "rm -rf dist/ && yarn build:esm && yarn build:cjs"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^5.1.5",
+    "@mantine/dates": "^5.1.5",
+    "@mantine/form": "^5.1.6",
+    "@mantine/hooks": "^5.1.5",
+    "@mantine/next": "^5.1.5",
+    "@tabler/icons": "^1.82.0",
+    "dayjs": "^1.11.5",
+    "puppeteer": "^16.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.3",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "typescript": "^4.7.4"
+  },
+  "prettier": {
+    "semi": false,
+    "trailingComma": "none",
+    "printWidth": 120
+  }
+}
