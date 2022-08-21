@@ -119,7 +119,10 @@ export const Docket = (options: DocketOptions) => {
           }
         })}
       />
-      <DocketContainer {...options} data={options.data.map((d) => ({ ...d, date: dayjs(d.date).toDate() }))} />
+      <DocketContainer
+        {...options}
+        data={options.data ? options.data.map((d) => ({ ...d, date: dayjs(d.date).toDate() })) : null}
+      />
     </MantineProvider>
   )
 }
@@ -143,6 +146,7 @@ export const DocketContainer = ({ data, onDownload, onCreate, onUpdate, onDelete
   const [downloading, setDownloading] = useState<null | number>(null)
 
   const [currentData, setData] = useState<DocketInvoice[]>(data)
+  useEffect(() => setData(data), [data])
 
   const summary = useMemo(() => useStatistics(currentData), [currentData])
   dayjs.extend(advancedFormat)
@@ -244,8 +248,8 @@ export const DocketContainer = ({ data, onDownload, onCreate, onUpdate, onDelete
         </Paper>
         <Space h="lg" />
         <Paper withBorder p={0}>
-          {currentData ? (
-            currentData.map((d) => (
+          {currentData !== null ? (
+            currentData?.map((d) => (
               <div className={classes.item} key={d.id}>
                 <Group position="apart">
                   <Title order={3}>
