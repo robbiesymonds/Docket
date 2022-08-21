@@ -6,7 +6,7 @@
 
 Drop-in invoice management system built for React.
 
-![Cover Photo](snapshot.png)
+![Cover Photo](https://raw.githubusercontent.com/robbiesymonds/Docket/master/snapshot.png)
 
 ## 🚀 Getting Started
 Docket provides a single React component for you to use however you want. This component exposes a number of [properties](#⚙️-configuration) to hook in with whatever backend/framework you are using. Docket is designed to be as unopinionated as possible, so data storage and fetching is left up to you.
