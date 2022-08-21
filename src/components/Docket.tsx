@@ -121,7 +121,7 @@ export const Docket = (options: DocketOptions) => {
       />
       <DocketContainer
         {...options}
-        data={options.data ? options.data.map((d) => ({ ...d, date: dayjs(d.date).toDate() })) : null}
+        data={options.data !== null ? options.data.map((d) => ({ ...d, date: dayjs(d.date).toDate() })) : null}
       />
     </MantineProvider>
   )
@@ -217,13 +217,13 @@ export const DocketContainer = ({ data, onDownload, onCreate, onUpdate, onDelete
           <Group position="apart" grow py={8} className={classes.stats}>
             <div className={classes.info}>
               <Text color="dimmed">This Year</Text>
-              <Title order={1} style={{ opacity: currentData ? 1 : 0.25 }}>
+              <Title order={1} style={{ opacity: currentData !== null ? 1 : 0.25 }}>
                 {summary.year}
               </Title>
             </div>
             <div className={classes.info}>
               <Text color="dimmed">This Month</Text>
-              <Title order={1} style={{ opacity: currentData ? 1 : 0.25 }}>
+              <Title order={1} style={{ opacity: currentData !== null ? 1 : 0.25 }}>
                 {summary.month}
               </Title>
             </div>
@@ -248,7 +248,7 @@ export const DocketContainer = ({ data, onDownload, onCreate, onUpdate, onDelete
         </Paper>
         <Space h="lg" />
         <Paper withBorder p={0}>
-          {currentData !== null ? (
+          {currentData ? (
             currentData?.map((d) => (
               <div className={classes.item} key={d.id}>
                 <Group position="apart">
