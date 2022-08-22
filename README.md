@@ -13,7 +13,7 @@ Docket provides a single React component for you to use however you want. This c
 
 Docket also implements a simple `HTML` templating system for creating your own invoice templates that can be populated and converted to `PDF` on the server for download from the front-end. [Scroll down](#invoice-generation) for information.
 
-### Installation
+### [Installation](https://www.npmjs.com/package/docket-react)
 ```bash
 # With yarn
 yarn add docket-react
