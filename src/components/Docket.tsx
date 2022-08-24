@@ -347,8 +347,20 @@ const Form = (props: FormProps) => {
               <TextInput required placeholder="Task Name" {...form.getInputProps(`billables.${i}.title`)} />
               <TextInput required placeholder="Description" {...form.getInputProps(`billables.${i}.description`)} />
               <Group>
-                <NumberInput min={0} required placeholder="Hours" {...form.getInputProps(`billables.${i}.hours`)} />
-                <NumberInput min={0} required placeholder="Rate" {...form.getInputProps(`billables.${i}.rate`)} />
+                <NumberInput
+                  min={0}
+                  required
+                  precision={2}
+                  placeholder="Hours"
+                  {...form.getInputProps(`billables.${i}.hours`)}
+                />
+                <NumberInput
+                  min={0}
+                  required
+                  precision={2}
+                  placeholder="Rate"
+                  {...form.getInputProps(`billables.${i}.rate`)}
+                />
               </Group>
               {i > 0 && (
                 <ActionIcon
