@@ -127,14 +127,14 @@ export const Docket = (options: DocketOptions) => {
   )
 }
 
-const blankInvoice: DocketInvoice = {
-  id: 0,
+const blankInvoice = {
+  id: undefined,
   date: new Date(),
   client: {
     name: "",
     address: ""
   },
-  billables: [{ title: "", description: "", hours: 0, rate: 0 }]
+  billables: [{ title: "", description: "", hours: undefined, rate: undefined }]
 }
 
 export const DocketContainer = ({ data, onDownload, onCreate, onUpdate, onDelete }: DocketOptions) => {
