@@ -1,5 +1,5 @@
 export interface DocketInvoice {
-  id: number
+  id: number | string
   date: Date | string
   client: {
     name: string
@@ -8,7 +8,7 @@ export interface DocketInvoice {
   billables: {
     title: string
     description: string
-    hours: number
-    rate: number
+    hours: number | string
+    rate: number | string
   }[]
 }

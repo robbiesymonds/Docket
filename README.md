@@ -125,6 +125,7 @@ Since the `billables` array can be of varying length, templating cannot just be 
 |------|------|---------|-------------|
 | dateFormat | `string` | `YYYY-MM-DD`|Uses the [dayjs] advanced date formatting syntax to manipulate the display of the invoice date output.
 | customFields| `Record<string, string\| number>` | `undefined`|Allows any number of additional values to be parsed and inserted in the invoice template.
+| scale| `number` | `1`| Specify a pre-processing transform on the template to easily adjust for document sizes.
 
 
 ## 💀 Additional Information

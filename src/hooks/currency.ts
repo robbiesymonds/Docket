@@ -8,7 +8,7 @@ export const formatCurrency = (d: number | string) => {
 }
 
 export const calculateTotal = (d: DocketInvoice) => {
-  return d.billables.reduce((a, b) => a + b.hours * b.rate, 0)
+  return d.billables.reduce((a, b) => a + (b.hours as number) * (b.rate as number), 0)
 }
 
 export const formatTotal = (d: DocketInvoice) => {

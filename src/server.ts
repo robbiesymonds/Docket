@@ -11,10 +11,12 @@ const UTILS = ["utils.total"]
 class DocketPDF {
   private template: string
   filename: string
+  scale: number
 
   constructor(template: string) {
     this.template = template
     this.filename = "blank.pdf"
+    this.scale = 1
   }
 
   setContent(
@@ -22,16 +24,18 @@ class DocketPDF {
     options?: Partial<{
       dateFormat: string
       customFields: Record<string, string | number>
+      scale: number
     }>
   ): void {
     dayjs.extend(advancedFormat)
     this.filename = `${dayjs(d.date).format("YYYY-MM-DD")}.pdf`
+    if (options.scale) this.scale = options.scale
 
     // Base values.
     for (const f of TEXT) {
       let value = f.split(".").reduce((o, i) => o[i], d)
       if (f === "date") value = dayjs(d.date).format(options?.dateFormat ?? "YYYY[-]MM[-]DD")
-      this.template = this.template.replace(`{{${f}}}`, value.toString())
+      this.template = this.template.replaceAll(`{{${f}}}`, value.toString())
     }
 
     // Map through billable objects.
@@ -44,11 +48,11 @@ class DocketPDF {
       for (const f of BILL) {
         let value: string | number
         if (f === "utils.subtotal") {
-          value = b.rate * b.hours
+          value = (b.rate as number) * (b.hours as number)
         } else {
           value = f.split(".").reduce((o, i) => o[i], b)
         }
-        bill = bill.replace(`{{${f}}}`, value.toString())
+        bill = bill.replaceAll(`{{${f}}}`, value.toString())
       }
       html += bill
     }
@@ -61,13 +65,13 @@ class DocketPDF {
       if (f === "utils.total") {
         value = calculateTotal(d)
       }
-      this.template = this.template.replace(`{{${f}}}`, value.toString())
+      this.template = this.template.replaceAll(`{{${f}}}`, value.toString())
     }
 
     // Custom fields
     if (options?.customFields) {
       for (const f of Object.entries(options.customFields)) {
-        this.template = this.template.replace(`{{custom.${f[0]}}}`, f[1].toString())
+        this.template = this.template.replaceAll(`{{custom.${f[0]}}}`, f[1].toString())
       }
     }
   }
@@ -80,7 +84,8 @@ class DocketPDF {
     await page.emulateMediaType("screen")
     const pdf = await page.pdf({
       printBackground: true,
-      format: "A4"
+      format: "A4",
+      scale: this.scale
     })
 
     await browser.close()
