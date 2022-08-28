@@ -24,12 +24,14 @@ class DocketPDF {
     options?: Partial<{
       dateFormat: string
       customFields: Record<string, string | number>
+      precision: number
       scale: number
     }>
   ): void {
     dayjs.extend(advancedFormat)
     this.filename = `${dayjs(d.date).format("YYYY-MM-DD")}.pdf`
     if (options.scale) this.scale = options.scale
+    const dp = options?.precision ?? 1
 
     // Base values.
     for (const f of TEXT) {
@@ -49,8 +51,10 @@ class DocketPDF {
         let value: string | number
         if (f === "utils.subtotal") {
           value = (b.rate as number) * (b.hours as number)
+          value = value.toFixed(dp)
         } else {
           value = f.split(".").reduce((o, i) => o[i], b)
+          if (f === "hours" || f === "rate") value = (value as number).toFixed(dp)
         }
         bill = bill.replaceAll(`{{${f}}}`, value.toString())
       }
@@ -63,7 +67,7 @@ class DocketPDF {
     for (const f of UTILS) {
       let value: string | number = ""
       if (f === "utils.total") {
-        value = calculateTotal(d)
+        value = calculateTotal(d).toFixed(dp)
       }
       this.template = this.template.replaceAll(`{{${f}}}`, value.toString())
     }

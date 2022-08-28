@@ -126,7 +126,7 @@ Since the `billables` array can be of varying length, templating cannot just be 
 | dateFormat | `string` | `YYYY-MM-DD`|Uses the [dayjs] advanced date formatting syntax to manipulate the display of the invoice date output.
 | customFields| `Record<string, string\| number>` | `undefined`|Allows any number of additional values to be parsed and inserted in the invoice template.
 | scale| `number` | `1`| Specify a pre-processing transform on the template to easily adjust for document sizes.
-
+| precision| `number` | `1`| Determines the number of decimal points to use in template values.
 
 ## 💀 Additional Information
 >Docket does not currently implement any protection methods (like a password), so please keep this in mind if you intend to deploy your instance to a publicly accessible URL.
