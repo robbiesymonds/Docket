@@ -36,7 +36,7 @@ const TEMP_DATA: DocketInvoice[] = [
 ]
 
 export default function Home() {
-  // Sends the selected docket to API for conversion.
+  /* Converts selected invoice into PDF on the client! */
   const handleDownload = async (d: DocketInvoice) => {
     await fetch("/api/download", {
       method: "POST",

@@ -1,9 +1,11 @@
-import { createGetInitialProps } from "@mantine/next"
 import { Docket } from "./components/Docket"
-import { DocketInvoice } from "./types"
+import { createGetInitialProps } from "@mantine/next"
+import { createDocketTemplate } from "./hooks/template"
 import { downloadDocketPDF } from "./hooks/download"
+import { DocketUtils } from "./hooks/utils"
+import { DocketInvoice } from "./types"
 
 const createDocketInitialProps = createGetInitialProps
 
 export type { DocketInvoice }
-export { Docket, createDocketInitialProps, downloadDocketPDF }
+export { Docket, DocketUtils, createDocketInitialProps, createDocketTemplate, downloadDocketPDF }

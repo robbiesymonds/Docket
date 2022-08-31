@@ -1,5 +1,8 @@
+# Random files
 node_modules/
 dist/
 .next/
+
 .env
 .DS_Store
+next-env.d.ts

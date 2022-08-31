@@ -1,14 +1,16 @@
+export interface Billable {
+  title: string
+  description: string
+  hours: number
+  rate: number
+}
+
 export interface DocketInvoice {
-  id: number | string
+  id: number
   date: Date | string
   client: {
     name: string
     address: string
   }
-  billables: {
-    title: string
-    description: string
-    hours: number | string
-    rate: number | string
-  }[]
+  billables: Billable[]
 }
