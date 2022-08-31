@@ -5,14 +5,14 @@
   "author": "robbiesymonds",
   "repository": "https://github.com/robbiesymonds/Docket",
   "license": "MIT",
-  "main": "dist/cjs/index.cjs.js",
-  "module": "dist/esm/index/esm.js",
-  "types": "dist/esm/index.esm.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.cjs.js",
-      "import": "./dist/esm/index.esm.js",
-      "types": "./dist/esm/index.esm.d.ts"
+      "require": "./dist/cjs/server.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/esm/index.d.ts"
     }
   },
   "files": [
