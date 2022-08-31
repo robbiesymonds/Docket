@@ -1,18 +1,18 @@
 {
-  "version": "2.0.0",
+  "version": "2.0.1",
   "name": "docket-react",
   "description": "Drop-in invoice management system for React.",
   "author": "robbiesymonds",
   "repository": "https://github.com/robbiesymonds/Docket",
   "license": "MIT",
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
-  "types": "esm/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "require": "./cjs/index.js",
-      "import": "./esm/index.js",
-      "types": "./esm/index.d.ts"
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/esm/index.d.ts"
     }
   },
   "files": [
