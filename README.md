@@ -160,12 +160,12 @@ Since the `billables` array can be of varying length, templating cannot just be 
 ## 💀 Additional Information
 
 ### NextJS Compatability
-Since Docket uses [Emotion](https://emotion.sh/) under the hood for styling, you can take advantage of the `@emotion/server` dependency to generate the styles on the server before the request is fulfilled, preventing any FOUC during rendering. Simply add the following to your `_document.tsx` file:
+Since Docket uses [Emotion](https://emotion.sh/) under the hood for styling, you can take advantage of the `@mantine/next` dependency to generate the styles on the server before the request is fulfilled, preventing any FOUC during rendering. Simply add the following to your `_document.tsx` file:
 ```jsx
 import Document, { Head, Html, Main, NextScript } from "next/document"
-import { createDocketInitialProps } from "docket-react"
+import { createGetInitialProps } from "@mantine/next"
 
-const getInitialProps = createDocketInitialProps()
+const getInitialProps = createGetInitialProps()
 
 export default class _Document extends Document {
   static getInitialProps = getInitialProps
