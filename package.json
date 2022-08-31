@@ -1,5 +1,5 @@
 {
-  "version": "2.0.2",
+  "version": "2.0.4",
   "name": "docket-react",
   "description": "Drop-in invoice management system for React.",
   "author": "robbiesymonds",
@@ -10,7 +10,7 @@
   "types": "dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/cjs/server.js",
+      "require": "./dist/cjs/index.js",
       "import": "./dist/esm/index.js",
       "types": "./dist/esm/index.d.ts"
     }
@@ -25,12 +25,10 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
-    "@emotion/server": "^11.10.0",
     "@mantine/core": "^5.1.5",
     "@mantine/dates": "^5.1.5",
     "@mantine/form": "^5.1.6",
     "@mantine/hooks": "^5.1.5",
-    "@mantine/next": "^5.1.5",
     "@tabler/icons": "^1.82.0",
     "dayjs": "^1.11.5",
     "react": "^18.2.0",
